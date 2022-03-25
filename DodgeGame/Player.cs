@@ -10,8 +10,8 @@ namespace DodgeGame
     internal class Player
     {
         public int x, y;
-        public int height = 10;
-        public int width = 6;
+        public int height = 13;
+        public int width = 10;
         public int speed = 6;
 
         public Player(int _x, int _y)

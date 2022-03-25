@@ -15,6 +15,13 @@ namespace DodgeGame
         public GameOver()
         {
             InitializeComponent();
+            endScoreLabel.Text = $"{GameScreen.score}";
+        }
+        
+
+        private void playAgainButton_Click(object sender, EventArgs e)
+        {
+            dodgeCars.ChangeScreen(this, new MenuScreen());
         }
     }
 }

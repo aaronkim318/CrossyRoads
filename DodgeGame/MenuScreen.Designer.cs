@@ -34,7 +34,7 @@
             // 
             // playButton
             // 
-            this.playButton.Location = new System.Drawing.Point(229, 147);
+            this.playButton.Location = new System.Drawing.Point(229, 198);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(120, 45);
             this.playButton.TabIndex = 0;
@@ -44,7 +44,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(229, 217);
+            this.exitButton.Location = new System.Drawing.Point(229, 275);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(120, 45);
             this.exitButton.TabIndex = 0;
@@ -56,10 +56,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.NavajoWhite;
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.playButton);
             this.Name = "MenuScreen";
-            this.Size = new System.Drawing.Size(600, 400);
+            this.Size = new System.Drawing.Size(600, 600);
             this.ResumeLayout(false);
 
         }

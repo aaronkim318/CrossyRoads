@@ -10,17 +10,18 @@ namespace DodgeGame
     
     internal class Car
     {
-        public int height = 10;
-        public int width = 30;
+        public int height = 20;
+        public int width = 50;
         public int x, y;
-        public int xSpeed = 5;
+        public int xSpeed;
 
 
 
-        public Car(int _x, int _y)
+        public Car(int _x, int _y, int _xSpeed)
         {
             x = _x;
             y = _y;
+            xSpeed = _xSpeed;
         }
         public void Move(Size ss)
         {
