@@ -94,6 +94,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -107,6 +108,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\76376__deleted-user-877451__game-over.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\588718__collierhs-colinlib__elevator-ding.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62139__tkshredder__zoomin.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,12 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 
 namespace DodgeGame
 {
     public partial class GameScreen : UserControl
     {
+        SoundPlayer gameOver = new SoundPlayer(Properties.Resources.game_over);
+        SoundPlayer gainedPoint = new SoundPlayer(Properties.Resources.upPoint);
+        SoundPlayer zoom = new SoundPlayer(Properties.Resources.zoom);
+
         Player hero;
 
 
@@ -167,7 +172,7 @@ namespace DodgeGame
             {
                 if (c.Collison(hero))
                 {
-
+                    gameOver.Play();
                     dodgeCars.ChangeScreen(this, new GameOver());
                     timerGo.Enabled = false;
                     break;
@@ -178,6 +183,7 @@ namespace DodgeGame
                 newCar();
                 secondNewCar();
 
+                gainedPoint.Play();
                 score++;
                 hero.y = 500;
 
@@ -185,6 +191,7 @@ namespace DodgeGame
                 {
                     foreach (Car c in cars)
                     {
+                        zoom.Play();
                         c.xSpeed += 1;
                     }
                 }
