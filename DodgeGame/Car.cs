@@ -31,11 +31,13 @@ namespace DodgeGame
             //check if ball has reached right or left edge
             if (x > ss.Width - width || x < 0)
             {
+                width = 0;
+                height = 0;
                 //if (x<0)
                 //{
                 //    x = 0;
-                //}
-                xSpeed *= -1;
+                ////}
+                //xSpeed *= -1;
 
             }
         }

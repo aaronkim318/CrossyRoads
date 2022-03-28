@@ -35,6 +35,11 @@ namespace DodgeGame
         int location;
         int location2;
         public static int score = 0;
+        int updateTimerSet = 500;
+        int newCarTimer = 5;
+        int timerSet = 10;
+
+        int xSpeed = 5;
 
 
         public GameScreen()
@@ -56,48 +61,44 @@ namespace DodgeGame
             switch (location)
             {
                 case 0:
-                    Car a = new Car(5, 50, 5);
+                    Car a = new Car(5, 50, xSpeed);
                     cars.Add(a);
                     break;
                 case 1:
-                    Car b = new Car(this.Width - 55, 100, -5);
+                    Car b = new Car(this.Width - 55, 100, -xSpeed);
                     cars.Add(b);
                     break;
                 case 2:
-                    Car c = new Car(5, 150, 5);
+                    Car c = new Car(5, 150, xSpeed);
                     cars.Add(c);
                     break;
                 case 3:
-                    Car d = new Car(this.Width - 55, 200, -5);
+                    Car d = new Car(this.Width - 55, 200, -xSpeed);
                     cars.Add(d);
                     break;
             }
 
-
-        }
-        public void secondNewCar()
-        {
             location2 = randgen.Next(0, 4);
             switch (location2)
             {
                 case 0:
-                    Car e = new Car(5, 250, 5);
+                    Car e = new Car(5, 250, xSpeed);
                     cars.Add(e);
                     break;
                 case 1:
-                    Car f = new Car(this.Width - 55, 300, -5);
+                    Car f = new Car(this.Width - 55, 300, -xSpeed);
                     cars.Add(f);
                     break;
                 case 2:
-                    Car g = new Car(5, 350, 5);
+                    Car g = new Car(5, 350, xSpeed);
                     cars.Add(g);
                     break;
                 case 3:
-                    Car h = new Car(this.Width - 55, 400, -5);
+                    Car h = new Car(this.Width - 55, 400, -xSpeed);
                     cars.Add(h);
                     break;
                 case 4:
-                    Car i = new Car(5, 450, 5);
+                    Car i = new Car(5, 450, xSpeed);
                     cars.Add(i);
                     break;
             }
@@ -143,7 +144,8 @@ namespace DodgeGame
         }
         private void timerGo_Tick(object sender, EventArgs e)
         {
-
+            updateTimerSet--;
+            newCarTimer--;
             //check when the player has made any movements, and activate the code accordingly
             if (leftArrowDown == true)
             {
@@ -164,10 +166,12 @@ namespace DodgeGame
             {
                 hero.Move("down", screenSize);
             }
+
             foreach (Car c in cars)
             {
                 c.Move(screenSize);
             }
+
             foreach (Car c in cars)
             {
                 if (c.Collison(hero))
@@ -178,10 +182,30 @@ namespace DodgeGame
                     break;
                 }
             }
+
+            if (updateTimerSet == 200)
+            {
+                timerSet = 20;
+            }
+            else if (updateTimerSet == 100)
+            {
+                timerSet = 5;
+            }
+            else if(updateTimerSet == 0)
+            {
+                updateTimerSet = 300;
+            }
+ 
+
+            if (newCarTimer <= 0)
+            {
+                newCarTimer = timerSet;
+                newCar();
+            }
+
             if (hero.y < 0 + hero.height)
             {
-                newCar();
-                secondNewCar();
+
 
                 gainedPoint.Play();
                 score++;
@@ -189,11 +213,7 @@ namespace DodgeGame
 
                 if (score % 5 == 0)
                 {
-                    foreach (Car c in cars)
-                    {
-                        zoom.Play();
-                        c.xSpeed += 1;
-                    }
+                    xSpeed += 10;
                 }
             }
             Refresh();
